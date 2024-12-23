@@ -1,4 +1,4 @@
-import { useColorScheme } from "react-native";
+import { Appearance, useColorScheme } from "react-native";
 
 export const generatePasswordStr = (passwordLength: number, addUpperCase: boolean, addLowerCase: boolean, addNumbers: boolean, addSymbols: boolean) => {
     let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -42,9 +42,9 @@ export const resetPassword = () => {
 /**
  * check whether the device color theme is light or dark
  */
-export const isDarkMode = () => useColorScheme() === 'dark';
+export const isDarkMode = () => Appearance.getColorScheme() === 'dark';
 
 /**
  * get the text color based on the device color theme
  */
-export const getSchemeBasedColor = () => isDarkMode() ? '#F4F4F8' : '#1E2019';
+export const getSchemeBasedColor = (inverted: boolean = false) => (!inverted && isDarkMode()) ? '#F4F4F8' : '#1E2019';

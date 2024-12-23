@@ -8,11 +8,32 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F4F4F8'
+        flexDirection: 'column',
     },
     normalText: {
         color: color,
         fontWeight: 'normal',
+        fontSize: 16,
+    },
+    headingText: {
+        color: color,
+        fontWeight: 'bold',
+        fontSize: 32,
+    },
+    header: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 4,
+        margin: 4
+    },
+    button: {
+        backgroundColor: color,
+        padding: 10,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: getSchemeBasedColor(true),
         fontSize: 16,
     },
 });
