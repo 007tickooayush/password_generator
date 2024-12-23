@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useState } from 'react'
+import { styles } from './_utils/styles';
 
 const App = () : React.JSX.Element => {
 	const [password, setPassword] = useState<string>('');
@@ -9,9 +10,13 @@ const App = () : React.JSX.Element => {
 	const [setsymbols, setSetsymbols] = useState<boolean>(true);
 	
 	return (
-		<View>
-			<Text>App</Text>
-		</View>
+		<SafeAreaView>
+			<ScrollView>
+				<Text style={[styles.normalText]}>
+					App
+				</Text>
+			</ScrollView>
+		</SafeAreaView>
 	)
 }
 
