@@ -16,6 +16,11 @@ export const styles = StyleSheet.create({
         fontWeight: 'normal',
         fontSize: 16,
     },
+    inputLabelText: {
+        color: color,
+        fontWeight: 'bold',
+        fontSize: 24,
+    },
     headingText: {
         color: color,
         fontWeight: 'bold',
@@ -46,9 +51,9 @@ export const styles = StyleSheet.create({
     formContainer: {
         flex: 1,
         flexDirection: 'column',
-        width: screenWidth * 1,
-        justifyContent: 'center',
-        alignItems: 'stretch',
+        // width: screenWidth * 1,
+        justifyContent: 'space-around',
+        // alignItems: 'center',
     },
     inputBar: {
         borderWidth: 1,
@@ -58,12 +63,17 @@ export const styles = StyleSheet.create({
         // height: screenHeight * 0.05,//50,
         // padding: 4,
     },
+    inputNumeric : {
+        width: screenWidth * 0.2,//300,
+        height: screenHeight * 0.05,//50,
+        textAlign: 'center',
+    },
     inputContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        margin: 2,
-        padding: 2,
+        margin: 4,
+        padding: 4,
         flexDirection: 'column',
     },
     inputHolder: {
@@ -71,6 +81,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
+        padding: 4,
+        margin: 4,
     },
     actionsContainer: {
         flex: 1,
