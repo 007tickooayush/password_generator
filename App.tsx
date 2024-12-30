@@ -44,6 +44,12 @@ const App = (): React.JSX.Element => {
 							<View style={styles.formContainer}>
 								<View style={styles.inputContainer}>
 									<View style={styles.inputHolder}>
+										<Text style={[styles.normalText]}>Password Length</Text>
+										{touched.passwordLength && errors.passwordLength && (
+											<Text style={[styles.errorText]}>
+												{errors.passwordLength}
+											</Text>
+										)}
 										<TextInput 
 											style={[styles.inputBar, styles.normalText]}
 											value={values.passwordLength}
