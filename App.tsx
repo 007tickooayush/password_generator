@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Butt
 import React, { useState } from 'react'
 import { styles } from './_utils/styles';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { generatePasswordStr, getSchemeBasedColorStyle, resetPassword } from './_utils/utils';
+import { generatePasswordStr, getButtonStyle, getSchemeBasedColorStyle, resetPassword } from './_utils/utils';
 import { Form, Formik } from 'formik';
 import { PasswordSchema } from './_utils/schema';
 import { defaultState } from './_utils/utils';
@@ -126,7 +126,7 @@ const App = (): React.JSX.Element => {
 								</View>
 								<View style={[styles.actionsContainer]}>
 									<TouchableOpacity 
-										style={[styles.button]}
+										style={[styles.button, getButtonStyle(isValid)]}
 										disabled={!isValid} 
 										onPress={() => handleSubmit()}
 									>
@@ -135,11 +135,12 @@ const App = (): React.JSX.Element => {
 										</Text>
 									</TouchableOpacity>
 									<TouchableOpacity 
-										style={[styles.button]}
+										style={[styles.button, getButtonStyle(!isValid && isPasswordGenerated)]}
 										onPress={() => {
 											handleReset();
 											// setIsPasswordGenerated(false);
 										}}
+										disabled={!isValid}
 									>
 										<Text style={[styles.buttonText]}>
 											Reset Password

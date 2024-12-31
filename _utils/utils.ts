@@ -1,4 +1,5 @@
 import { Appearance, useColorScheme } from "react-native";
+import { styles } from "./styles";
 
 export const defaultState = {
     default_password: '',
@@ -74,4 +75,10 @@ export const getSchemeBasedColorStyle = (inverted: boolean = false) => {
     return {
         color: getSchemeBasedColor(inverted)
     };
+}
+/**
+ * get the button enabled/disabled style conditionally 
+ */
+export const getButtonStyle = (enabled: boolean) => {
+    return enabled ? styles.buttonEnabled : styles.buttonDisabled;
 }

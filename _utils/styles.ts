@@ -31,17 +31,23 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // padding: 4,
+        padding: 4,
         margin: 4
     },
     button: {
-        backgroundColor: color,
+        // backgroundColor: color,
         padding: 8,
         borderRadius: 5,
         margin: 4,
     },
+    buttonDisabled: {
+        backgroundColor: '#738290',
+    },
+    buttonEnabled: {
+        backgroundColor: "#D3AB9E",
+    },
     buttonText: {
-        color: getSchemeBasedColor(true),
+        color: getSchemeBasedColor(false),
         fontSize: 16,
         fontFamily: 'Arial',
     },
