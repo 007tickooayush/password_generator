@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { getSchemeBasedColor } from "./utils";
+import { getSchemeBasedColor, getSchemeBasedColorStyle } from "./utils";
 
 let color = getSchemeBasedColor();
 let { width: screenWidth, height: screenHeight } = Dimensions.get('window');
@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
         color: color,
         fontWeight: 'bold',
         fontSize: 24,
+        fontVariant: ['small-caps', 'tabular-nums'],
     },
     headingText: {
         color: color,
@@ -47,6 +48,11 @@ export const styles = StyleSheet.create({
     errorText: {
         color: 'red',
         fontSize: 16,
+    },
+    generatedPasswordText: {
+        // color: color,
+        fontSize: 24,
+        fontWeight: 'bold',
     },
     formContainer: {
         flex: 1,
@@ -91,5 +97,26 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 4,
         margin: 4,
+    },
+    card: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        padding: 4,
+        margin: 12,
+        backgroundColor: getSchemeBasedColor(),
+        borderRadius: 5,
+
+    },
+    cardElevated: {
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
 });
