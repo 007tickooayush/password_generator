@@ -38,14 +38,14 @@ const App = (): React.JSX.Element => {
 						onReset={() => {
 							console.log('Password reset');
 							let {
-								default_isPasswordGenerated, 
-								default_lowercase, 
-								default_numbers, 
-								default_password, 
-								default_symbols, 
+								default_isPasswordGenerated,
+								default_lowercase,
+								default_numbers,
+								default_password,
+								default_symbols,
 								default_uppercase
 							} = resetPassword();
-							
+
 							setIsPasswordGenerated(default_isPasswordGenerated);
 							setLowercase(default_lowercase);
 							setNumbers(default_numbers);
@@ -71,11 +71,6 @@ const App = (): React.JSX.Element => {
 
 									<View style={styles.inputHolder}>
 										<Text style={[styles.inputLabelText]}>Password Length</Text>
-										{touched.passwordLength && errors.passwordLength && (
-											<Text style={[styles.errorText]}>
-												{errors.passwordLength}
-											</Text>
-										)}
 										<TextInput
 											style={[styles.inputBar, styles.inputNumeric, styles.normalText]}
 											value={values.passwordLength}
@@ -83,6 +78,13 @@ const App = (): React.JSX.Element => {
 											placeholder='E.g. 8'
 											keyboardType='numeric'
 										/>
+									</View>
+									<View style={styles.inputContainer}>
+										{touched.passwordLength && errors.passwordLength && (
+											<Text style={[styles.errorText]}>
+												{errors.passwordLength}
+											</Text>
+										)}
 									</View>
 									<View style={styles.inputHolder}>
 										<Text style={[styles.inputLabelText]}>Include Lowercase</Text>
@@ -125,22 +127,21 @@ const App = (): React.JSX.Element => {
 									</View>
 								</View>
 								<View style={[styles.actionsContainer]}>
-									<TouchableOpacity 
-										style={[styles.button, getButtonStyle(isValid)]}
-										disabled={!isValid} 
+									<TouchableOpacity
+										style={[styles.button, styles.buttonEnabled]}
+										disabled={!isValid}
 										onPress={() => handleSubmit()}
 									>
 										<Text style={[styles.buttonText]}>
 											Generate Password
 										</Text>
 									</TouchableOpacity>
-									<TouchableOpacity 
-										style={[styles.button, getButtonStyle(!isValid && isPasswordGenerated)]}
+									<TouchableOpacity
+										style={[styles.button, styles.buttonEnabled]}
 										onPress={() => {
 											handleReset();
 											// setIsPasswordGenerated(false);
 										}}
-										disabled={!isValid}
 									>
 										<Text style={[styles.buttonText]}>
 											Reset Password
@@ -160,7 +161,7 @@ const App = (): React.JSX.Element => {
 							<Text selectable={true} style={[styles.generatedPasswordText, getSchemeBasedColorStyle(true)]}>{password}</Text>
 						</View>
 					) :
-					null
+						null
 				}
 			</ScrollView>
 		</SafeAreaView>
